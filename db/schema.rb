@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_053545) do
   enable_extension "plpgsql"
 
   create_table "synthwears", force: :cascade do |t|
+
     t.string "name"
     t.integer "price"
     t.string "description"
