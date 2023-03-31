@@ -1,0 +1,2 @@
+class Synthwear < ApplicationRecord
+end
