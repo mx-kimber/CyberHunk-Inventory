@@ -1,23 +1,23 @@
 class SynthwearController < ApplicationController
 
   def index
-        @synthwears = Synthwear.all
+    # render json: {message: "<< CyberHunk Synthwear >>"}
+    @synthwear = Synthwear.all
     render :index
-    render json: {message: "<< CyberHunk Synthwear >>"}
+  end
+
+  def show
+    @synthwear = Synthwear.find_by(id: params[:id])
+    render :show
   end
 
   def create
-    @synthware = Synthwear.create(
+    @synthwear = Synthwear.create(
       name: params[:name],
       price: params[:price],
       description: params[:description],
       image_url: params[:image_url]
     )
-    render :show
-  end
-
-  def show
-    @synthwear = Synthwear.find_by(id: params[:id])
     render :show
   end
 
