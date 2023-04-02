@@ -13,18 +13,18 @@ class SynthwearsController < ApplicationController
 
   def create
     @synthwear = Synthwear.new(
-    synthwear: name = params[:name],
-    synthwear: price = params[:price],
-    synthwear: description = params[:description],
-    synthwear: image_url = params[:image_url]
+    name: name = params[:name],
+    price: price = params[:price],
+    description: description = params[:description],
+    image_url: image_url = params[:image_url]
     )
-
+    @synthwear.save
     render :show
   end
 
   def update
     @synthwear = Synthwear.find_by(id: params[:id])
-    @synthwear.title = params[:name] || @synthwear.name
+    @synthwear.name = params[:name] || @synthwear.name
     @synthwear.price = params[:price] || @synthwear.price
     @synthwear.description = params[:description] || @synthwear.description
     @synthwear.image_url = params[:image_url] || @synthwear.image_url
@@ -34,7 +34,7 @@ class SynthwearsController < ApplicationController
   end
 
   def destroy
-    @synthwear = synthwear.find_by(id: params[:id])
+    @synthwear = Synthwear.find_by(id: params[:id])
     @synthwear.destroy
     render json: { message: "synthwear destroyed successfully" }
   end

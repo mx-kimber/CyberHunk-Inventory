@@ -7,3 +7,5 @@ Rails.application.routes.draw do
   delete "/synthwears/:id" => "synthwears#destroy"
 
 end
+
+
